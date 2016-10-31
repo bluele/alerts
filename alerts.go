@@ -140,6 +140,10 @@ func (tg *Trigger) IncrError() {
 	tg.gc(now)
 }
 
+func (tg *Trigger) Stats() (int, int) {
+	return tg.stats()
+}
+
 func (tg *Trigger) gc(now time.Time) {
 	expired := now.Add(-tg.WindowTime)
 	var removes []*list.Element
@@ -292,4 +296,8 @@ func (al *Alert) CallFunc(cb func() error) error {
 		al.IncrError()
 	}
 	return err
+}
+
+func (al *Alert) Triggers() []*Trigger {
+	return al.triggers
 }
