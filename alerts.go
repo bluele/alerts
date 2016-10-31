@@ -13,7 +13,7 @@ const (
 	successLabel byte = iota
 	errorLabel
 
-	defaultTriggerName     = "alerts"
+	defaultTriggerName     = "alert-trigger"
 	defaultWindowTime      = time.Minute
 	defaultMinCount        = 10
 	defaultThresholdRate   = 0.1
